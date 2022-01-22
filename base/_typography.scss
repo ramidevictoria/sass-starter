@@ -1,0 +1,51 @@
+/* Tipography
+ * ******************************************* */
+
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+body {
+  font-family: $font-family;
+  color: $grey-dark--1;
+}
+
+p {
+	white-space: initial;
+	color: inherit;
+	line-height: 1.5;
+	margin-bottom: .625rem;
+}
+
+h1 {
+	color: inherit;
+	font-weight: inherit;
+
+	@include break-left {
+		font-size: 2rem;
+	}
+
+	@include break-right {
+		font-size: 2.5rem
+	}
+}
+
+
+h2 {
+	color: inherit;
+	font-weight: inherit;
+	@include break-left {
+		font-size: 1.4rem;
+	}
+
+	@include break-right {
+		font-size: 1.7rem
+	}
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+}
+
