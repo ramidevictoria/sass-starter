@@ -272,6 +272,12 @@ $laptop: 1199.98px;
 	column-width: $value;
 }
 
+@mixin cursor($val) {
+	-webkit-cursor:$val;
+	-moz-cursor:$val;
+	cursor: $val;
+}
+
 @mixin display-flex() {
 	display: block;
 	display: -webkit-box;
