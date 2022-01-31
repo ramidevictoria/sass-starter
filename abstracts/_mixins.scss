@@ -235,16 +235,31 @@ $laptop: 1199.98px;
 	appearance: $val;
 }
 
+@mixins background-clip($val) {
+	-moz-background-clip: $val;
+	-webkit-background-clip: $val;
+	-khtml-background-clip: $val;
+	background-clip: $val;
+}
+
 @mixin border-radius($top, $right: null, $bottom: null, $left: null) {
 	-moz-border-radius: $top $right $bottom $left;
 	-webkit-border-radius: $top $right $bottom $left;
 	border-radius: $top $right $bottom $left;
+	@include background-clip(padding);
+	@include background-clip(padding-box);
 }
 
 @mixin box-shadow($val...) {
 	-webkit-box-shadow: $val;
 	-moz-box-shadow: $val;
 	box-shadow: $val;
+}
+
+@mixin box-sizing($val) {
+	-webkit-box-sizing: $val;
+	-moz-box-sizing: $val;
+	box-sizing: $val;
 }
 
 @mixin column-count($val) {
@@ -523,9 +538,15 @@ $laptop: 1199.98px;
 		$stop + unquote(",GradientType=") + $gradientType + unquote(")");
 }
 
+@mixin object-fit($val) {
+	-o-object-fit:$val;
+	object-fit:$val;
+}
+
 @mixin opacity($value) {
 	$opacity-ie: $value * 100;
-	filter: alpha(opacity=$opacity-ie); //IE8
+	-ms-filter: alpha(opacity=$opacity-ie);
+	filter: alpha(opacity=$opacity-ie);
 	-moz-opacity: $value;
 	-khtml-opacity: $value;
 	opacity: $value;
@@ -539,11 +560,23 @@ $laptop: 1199.98px;
 	order: $int;
 }
 
+@mixin perspective($val) {
+	-moz-perspective:$val;
+	-webkit-perspective:$val;
+	perspective:$val;
+}
+
 @mixin transform($transforms) {
 	-webkit-transform: $transforms;
 	-ms-transform: $transforms;
 	-o-transform: $transforms;
 	transform: $transforms;
+}
+
+@mixin transform-style($val) {
+	-moz-transform-style:$val;
+	-webkit-transform-style:$val;
+	transform-style:$val;
 }
 
 @mixin transition($val...) {
